@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+     version="1.1" baseProfile="full"
+     width="183px" height="260px"
+     viewBox="0 0 183 260">
+	<filter id="drop-shadow">
+	  <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+		<feOffset dx="12" dy="12" result="offsetblur"/>
+		<feFlood flood-color="rgba(0,0,0,0.5)"/>
+		<feComposite in2="offsetblur" operator="in"/>
+		<feMerge>
+		  <feMergeNode/>
+		  <feMergeNode in="SourceGraphic"/>
+		</feMerge>
+  </filter>
+	<g filter="url(#drop-shadow)">
+		<g id="portalman" transform="translate(100,0)">
+			<circle fill="#119BCF" cx="30" cy="30" r="23"/>
+			<rect x="0" y="0" width="70" height="100" fill="#119BCF" transform="translate(28,70) rotate(-35, 0,0)" />
+			<path fill="none" stroke="#119BCF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"
+				d="M90,140 l-30,40 l30,40"/>
+			<path fill="none" stroke="#119BCF" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" d="M10,130
+				l20,-20 l5,-35"/>
+
+			<line fill="none" stroke="#119BCF" stroke-width="6" stroke-miterlimit="5" x1="80" y1="15" x2="80" y2="245"/>
+		</g>
+
+		<g transform="translate(40,130) rotate(-20)">
+			<circle fill="#119BCF" cx="0" cy="0" r="23"/>
+			<rect x="-10" y="-27" width="20" height="10" fill="#119BCF" />
+		  <path d="M 0, -25 c 0,-50, 40,0, 50,-20" stroke="#119BCF" stroke-width="4" fill="none"/>
+		</g>
+	</g>
+</svg>
