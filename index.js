@@ -2,8 +2,8 @@ var express = require('express')
 var http = require('http')
 var socketIO = require('socket.io')
 
-var SessionManager = require('./lib/SessionManager').SessionManager
-var GameServer = require('./lib/GameServer').GameServer
+var SessionManager = require('./lib/sessionManager.js').SessionManager
+var GameServer = require('./lib/gameServer.js').GameServer
 
 // create express server and serve the static directory
 var app = express()
