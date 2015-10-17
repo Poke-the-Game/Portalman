@@ -2,18 +2,25 @@
 <html>
   <head>
     <title>Portalman</title>
-    
+
     <link href="css/menu.css" rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-  		body.menu {
-  			background-color: black;
-  			font-family: 'Roboto', sans-serif;
-  			text-transform: uppercase;
-  			background: url("/img/menu_backdrop.jpg");
-  			background-size: 100%;
-  		}
+  		.entity {
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
 
+      .entity.wall {
+        background-image: url('img/wall.svg');
+      }
+      
+      .entity.player {
+        background-image: url('img/cube.svg');
+      }
   	</style>
 
     <script src="/socket.io/socket.io.js"></script>

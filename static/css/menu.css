@@ -3,6 +3,14 @@
     src: url('/Roboto-Regular.ttf');
 }
 
+body.menu {
+  background-color: black;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  background: url("/img/menu_backdrop.jpg");
+  background-size: 100%;
+}
+
 div.menu {
   width: 20%;
   position: fixed;
