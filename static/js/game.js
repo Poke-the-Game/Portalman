@@ -35,6 +35,7 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('worldUpdate', function (data) {
     console.log('worldUpdate', data)
     this.render(data.entities)
+    // TODO: remove all entities which do not exist in new state
   }.bind(this))
 }
 
