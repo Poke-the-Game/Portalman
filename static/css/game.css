@@ -40,4 +40,7 @@ body {
 
 .entity.bomb {
   background-image: url('../img/bomb.svg');
+  background-position: 4px 4px;
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
 }

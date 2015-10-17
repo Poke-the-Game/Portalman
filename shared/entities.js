@@ -29,7 +29,10 @@ var BasePlayer = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'player'
   this.inputState = {}
-
+  this.size = {
+    x: 0.8,
+    y: 0.8
+  }
   this.maxBombNum = 1
 }
 BasePlayer.prototype = new BaseEntity()
