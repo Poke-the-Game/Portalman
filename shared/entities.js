@@ -9,6 +9,7 @@ var BaseEntity = function () {
   this.type = ''
   this.changedSinceLastTick = false
   this.velocity = 6
+  this.game = undefined
 }
 
 BaseEntity.prototype.update = function () {}
