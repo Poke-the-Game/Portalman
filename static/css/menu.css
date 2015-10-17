@@ -1,0 +1,25 @@
+div.menu {
+  width: 20%;
+  position: fixed;
+  bottom: 20%;
+  left: 10%;
+}
+
+div.menu h1 {
+  display: block;
+  color: white;
+}
+
+div.menu a {
+  list-style: none;
+  display: block;
+
+  text-decoration: none;
+  color: #474747;
+  font-size: 18pt;
+}
+
+div.menu a.selected {
+  color: white;
+  background: #474747;
+}
