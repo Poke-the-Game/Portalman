@@ -1,8 +1,8 @@
 # Portalman
 
-### Buils
+### Build
 
-* Clone
+1. `git clone git@github.com:Poke-the-Game/Portalman.git`
 * `npm install`
 * `npm start`
 
