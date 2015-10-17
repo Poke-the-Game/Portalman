@@ -9,8 +9,17 @@ var Game = window.Game = function Game (socket) {
 Game.prototype.initEventCallbacks = function () {
   this.socket.on('disconnect', this.disconnect)
 
+  this.socket.on('gameStart', function (data) {
+    console.log('gameStart', data)
+    // data.id is our id -> TODO do something with it
+  })
+
   this.socket.on('tick', function (data) {
     console.log('tick', data)
+  })
+
+  this.socket.on('worldUpdate', function (data) {
+    console.log('worldUpdate', data)
   })
 }
 
