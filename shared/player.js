@@ -1,5 +1,5 @@
-var BasePlayer = function (id) {
-  this.id = id
+var BasePlayer = function () {
+  this.id = undefined
 
   this.x_pos = 100
   this.y_pos = 100
