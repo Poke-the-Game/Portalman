@@ -1,20 +1,26 @@
 var express = require('express')
+var http = require('http')
+var socketIO = require('socket.io')
+
+var SessionManager = require('./lib/sessionManager.js').SessionManager
+var GameServer = require('./lib/gameServer.js').GameServer
+
+// create express server and serve the static directory
 var app = express()
-var http = require('http').Server(app)
-var io = require('socket.io')(http)
-
-var SessionManager = require('./lib/SessionManager').SessionManager
-var GameServer = require('./lib/GameServer').GameServer
-
 app.use(express.static(__dirname + '/static'))
 
-var port = process.env.PORT || 3000
-
-http.listen(port, function () {
+// create an http server and listen on the right port
+var server = http.Server(app)
+server.listen(process.env.PORT || 3000, function () {
   console.log('listening on *:3000')
 })
 
-// create the session manager
-var sessions = new SessionManager(io, function (socket1, socket2) {
-  var gameServer = new GameServer(socket1, socket2)
+// create a socket io server and run the session manager
+var io = socketIO(server)
+
+// create a session manager
+var sessionManager = new SessionManager()
+sessionManager.on('new_session', function (socket1, socket2) {
+  return new GameServer(socket1, socket2)
 })
+sessionManager.listen(io)
