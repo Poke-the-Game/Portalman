@@ -49,6 +49,9 @@ Game.prototype.render = function (entities) {
     $entity.css('left', entity.pos.x * 32)
     $entity.css('transform', 'rotate(' + entity.rotation + 'deg)')
 
+    $entity.css('width', entity.size.x * 32)
+    $entity.css('height', entity.size.y * 32)
+
     if (entity.canPortal) {
       $entity.addClass('can_portal')
     } else {

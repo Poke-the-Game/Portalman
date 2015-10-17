@@ -5,6 +5,7 @@ if (exports === undefined) {
 var BaseEntity = function () {
   this.id = 0
   this.pos = {x: 0, y: 0}
+  this.size = {x: 1, y: 1}
   this.rotation = 0
   this.type = ''
   this.changedSinceLastTick = false
@@ -18,6 +19,7 @@ BaseEntity.prototype.serialize = function () {
     'id': this.id,
     'type': this.type,
     'pos': this.pos,
+    'size': this.size,
     'rotation': this.rotation,
     'canPortal': this.canPortal
   }
