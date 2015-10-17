@@ -12,14 +12,13 @@ var BaseEntity = function () {
 }
 
 BaseEntity.prototype.update = function () {}
-BaseEntity.prototype.serialise = function () {
+BaseEntity.prototype.serialize = function () {
   return {
     'id': this.id,
     'type': this.type,
     'pos': this.pos,
     'rotation': this.rotation,
-    'canPortal': this.canPortal,
-    'grid': this.grid
+    'canPortal': this.canPortal
   }
 }
 
