@@ -15,6 +15,11 @@ body {
   position: absolute;
   top: 0px;
   left: 0px;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .entity.wall {

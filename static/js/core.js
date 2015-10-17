@@ -21,7 +21,7 @@ var theMenu = window.buildMenu('Portalman', [{
 }, {
   'text': 'About',
   'callback': function () {
-    window.alert('We havent done a page for this yet. Come back in 24 hours. ')
+    window.$('div.info').toggle()
   }
 }, {
   'text': 'Quit',
