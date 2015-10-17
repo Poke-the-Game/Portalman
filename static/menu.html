@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Portalman 3</title>
+	</head>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+	<style type="text/css">
+		body {
+			background-color: black;
+			font-family: 'Roboto', sans-serif;
+			text-transform: uppercase;
+			background: url("/static/img/menu_backdrop.jpg");
+			background-size: 100%;
+		}
+
+		div.menu {
+			width: 20%;
+			position: fixed;
+			bottom: 20%;
+			left: 10%;
+		}
+
+		div.menu h1 {
+			display: block;
+			color: white;
+		}
+
+		div.menu a {
+			list-style: none;
+			display: block;
+
+			text-decoration: none;
+			color: #474747;
+			font-size: 18pt;
+		}
+
+		div.menu a.selected {
+			color: white;
+			background: #474747;
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		$(function() {
+			$('div.menu a').hover(
+				function(evt) {
+					$('div.menu a').removeClass('selected')
+					$(this).addClass('selected')
+				}
+			)
+
+			$(document).keydown(function(evt) {
+				switch(evt.which) {
+					case 87: // w
+					case 38: // up-arrow
+						var item = $('div.menu a.selected')
+						if(item.prev('a').length) {
+							item.removeClass('selected')
+								.prev().addClass('selected')
+						}
+
+						break;
+
+					case 83: // s
+					case 40: // down-arrow
+						var item = $('div.menu a.selected')
+						if(item.next('a').length) {
+							item.removeClass('selected')
+								.next().addClass('selected')
+						}
+
+						break;
+				}
+			});
+		});
+	</script>
+
+	<body>
+		<div class="menu">
+			<h1> Portalman 3 </h1>
+			<a href="#" class="selected"> Eins </a>
+			<a href="#"> Zwei </a>
+			<a href="#"> Drei </a>
+			<a href="#"> Impressum </a>
+		</div>
+	</body>
+</html>
