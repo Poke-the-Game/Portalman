@@ -1,4 +1,4 @@
-var SessionManager = function SessionManager (socket) {
+var SessionManager = window.SessionManager = function SessionManager (socket) {
   this.socket = socket
 }
 
