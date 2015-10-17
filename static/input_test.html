@@ -1,0 +1,28 @@
+<html>
+<head>
+  <script src="js/input.js"></script>
+  <script type="text/javascript">
+  "use strict";
+     var k
+     function test() {
+      k = new KeyboardInput({
+        13: 'enter',
+        37: 'left', // LEFT arrow
+        38: 'up', // UP arrow
+        39: 'right', // right arrow
+        40: 'down', // down arrow
+        65: 'left', // A
+        87: 'up', // W
+        68: 'right', // D
+        83: 'down' // S
+      })
+      window.addEventListener('userInput', doSomething);
+      function doSomething(e) {
+        console.log("Event is called: " + e.type + " (" + e.detail.input + ", " + e.detail.state + ")", e);
+      }
+      // alternate access: Input.prototype.states["left"] -> state (between 0 and 1)
+    }
+  </script>
+</head>
+<body onload="test()"></body>
+</html>
