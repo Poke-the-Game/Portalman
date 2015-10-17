@@ -1,0 +1,23 @@
+{
+  "name": "portalman",
+  "version": "0.0.1",
+  "description": "Bomberman with Portals",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Poke-the-Game/Portalman.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Poke-the-Game/Portalman/issues"
+  },
+  "homepage": "https://github.com/Poke-the-Game/Portalman#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.7"
+  }
+}
