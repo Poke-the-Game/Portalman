@@ -8,6 +8,7 @@ var BaseEntity = function () {
   this.rotation = 0
   this.type = ''
   this.changedSinceLastTick = false
+  this.velocity = 6
 }
 
 var BasePlayer = function () {
