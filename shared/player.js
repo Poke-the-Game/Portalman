@@ -1,8 +1,8 @@
 var BasePlayer = function () {
-  this.id = undefined
+  this.id
 
-  this.x_pos = 100
-  this.y_pos = 100
+  this.x_pos
+  this.y_pos
 }
 
 if (typeof exports !== 'undefined') {
