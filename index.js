@@ -18,5 +18,5 @@ server.listen(process.env.PORT || 3000, function () {
 var io = socketIO(server)
 
 // create a session manager
-var sessionManager = new SessionManager()
+var sessionManager = new SessionManager(io)
 sessionManager.listen(io)
