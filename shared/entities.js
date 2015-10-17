@@ -52,6 +52,7 @@ var BaseCube = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'cube'
   this.canPortal = false
+  this.isDestroyable = true
 }
 
 BaseCube.prototype = new BaseEntity()
@@ -64,6 +65,7 @@ var BaseBomb = function () {
   this.type = 'bomb'
   this.canPortal = false
   this.diffusionTime = 4000
+  this.explosionRange = 4
 }
 
 BaseBomb.prototype = new BaseEntity()
