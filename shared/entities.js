@@ -11,6 +11,8 @@ var BaseEntity = function () {
   this.velocity = 6
 }
 
+BaseEntity.prototype.update = function () {}
+
 var BasePlayer = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'player'
@@ -24,9 +26,21 @@ exports.BasePlayer = BasePlayer
 var BaseWall = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'wall'
+  this.canPortal = false
 }
 
 BaseWall.prototype = new BaseEntity()
 BaseWall.prototype.constructor = BaseWall
 
 exports.BaseWall = BaseWall
+
+var BaseCube = function () {
+  BaseEntity.apply(this, arguments)
+  this.type = 'cube'
+  this.canPortal = false
+}
+
+BaseCube.prototype = new BaseEntity()
+BaseCube.prototype.constructor = BaseCube
+
+exports.BaseCube = BaseCube
