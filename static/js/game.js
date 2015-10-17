@@ -1,9 +1,15 @@
 var Game = window.Game = function Game (socket) {
+  var self = this
+
   // Do stuff with the socket.
   console.log('socket', socket)
   this.socket = socket
 
   this.initEventCallbacks()
+
+  setTimeout(function () {
+    self.socket.emit('clientReady')
+  }, 1000)
 }
 
 Game.prototype.initEventCallbacks = function () {
