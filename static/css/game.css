@@ -1,0 +1,34 @@
+body {
+  overflow: hidden;
+}
+
+#field {
+  position: relative;
+  background-image: url('../img/bg.svg');
+  width: 320px;
+  height: 320px;
+}
+
+.entity {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.entity.wall {
+  background-image: url('../img/wall.svg');
+}
+
+.entity.wall.can_portal {
+  background-image: url('../img/wall_p.svg');
+}
+
+.entity.player {
+  background-image: url('../img/player.svg');
+}
+
+.entity.cube {
+  background-image: url('../img/cube.svg');
+}
