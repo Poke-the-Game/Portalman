@@ -29,12 +29,20 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('tick', function (data) {
     console.log('tick', data)
     this.render(data.entities)
+    this.handleDeletedEntities(data.deletedEntities)
   }.bind(this))
 
   this.socket.on('worldUpdate', function (data) {
     console.log('worldUpdate', data)
     this.render(data.entities)
+    // TODO: remove all entities which do not exist in new state
   }.bind(this))
+}
+
+Game.prototype.handleDeletedEntities = function (deletedEntities) {
+  deletedEntities.forEach(function (entity) {
+    window.jQuery('#' + entity.id).remove()
+  })
 }
 
 Game.prototype.render = function (entities) {
@@ -68,6 +76,14 @@ Game.prototype.disconnect = function () {
     .find('*').remove().end()
   .addClass('menu')
 
+  console.log(window.showInfo)
+
+  window.showInfo('Your opponent disconnected')
+
+  setTimeout(function () {
+    window.hideInfo()
+  }, 800)
+
   // and add the menu again
-  window.buildMenu('Someone disconnected (or the server died), so the game has ended. ', []).appendTo('body')
+  window.theMenu.appendTo(window.$('body'))
 }

@@ -5,10 +5,10 @@ var theMenu = window.buildMenu('Portalman', [{
   'callback': function () {
     // clear the body
     theMenu.remove()
+    window.hideInfo()
 
     // add a waiting message
-    theMenu = window.buildMenu('Waiting for a partner', [])
-    theMenu.appendTo('body')
+    window.showInfo('Waiting for a partner...')
 
     // start sessions and stuff
     session.start(function (socket) {
@@ -34,5 +34,7 @@ var theMenu = window.buildMenu('Portalman', [{
     theMenu.appendTo('body')
   }
 }])
+
+window.theMenu = theMenu
 
 theMenu.appendTo('body')
