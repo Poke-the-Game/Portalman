@@ -8,7 +8,7 @@ div.info {
   position: fixed;
   top: 10%;
   left: 10%;
-  width: 40%;
+  max-width: 40%;
 
   -webkit-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
@@ -17,7 +17,7 @@ div.info {
   color: black;
   background-color: #FCEEFF;
   padding: 1em;
-  padding-bottom: 2em;
+  /* padding-bottom: 2em; */
 }
 
 div.info a {

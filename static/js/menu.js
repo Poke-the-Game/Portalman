@@ -25,6 +25,14 @@
     })
   })
 
+  window.hideInfo = function hideInfo () {
+    $('div.info').remove()
+  }
+
+  window.showInfo = function showInfo (text) {
+    $('body').append($('<div class="info">').text(text).show())
+  }
+
   window.buildMenu = function buildMenu (title, items) {
     var menu = $('<div class="menu">')
 
