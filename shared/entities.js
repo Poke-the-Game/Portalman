@@ -12,6 +12,16 @@ var BaseEntity = function () {
 }
 
 BaseEntity.prototype.update = function () {}
+BaseEntity.prototype.serialise = function () {
+  return {
+    'id': this.id,
+    'type': this.type,
+    'pos': this.pos,
+    'rotation': this.rotation,
+    'canPortal': this.canPortal,
+    'grid': this.grid
+  }
+}
 
 var BasePlayer = function () {
   BaseEntity.apply(this, arguments)
