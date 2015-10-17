@@ -5,7 +5,6 @@ var theMenu = window.buildMenu('Portalman', [{
   'callback': function () {
     // clear the body
     theMenu.remove()
-    window.hideInfo()
 
     // add a waiting message
     window.showInfo('Waiting for a partner...')
@@ -14,6 +13,8 @@ var theMenu = window.buildMenu('Portalman', [{
     session.start(function (socket) {
       window.client = new window.Game(socket, function () {
         theMenu.remove()
+        window.hideInfo()
+
         window.$('body').removeClass('menu')
       })
     })
