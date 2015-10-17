@@ -3,12 +3,27 @@
     src: url('/Roboto-Regular.ttf');
 }
 
+#logo {
+  display: none;
+  position: absolute;
+  right:0px;
+  bottom:0px;
+  max-height: 75%;
+}
+
+body.menu #logo {
+  display: block;
+}
+
+html, body {
+  height:100%;
+}
+
 body.menu {
   background-color: black;
   font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
-  background: url("/img/menu_backdrop.jpg");
-  background-size: 100%;
+  background: radial-gradient(circle at bottom right, #444 0%,#000 90%);
 }
 
 div.menu {
