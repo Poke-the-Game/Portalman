@@ -45,6 +45,11 @@ Game.prototype.render = function (entities) {
     }
     $entity.css('top', entity.pos.y * 32)
     $entity.css('left', entity.pos.x * 32)
+    if(entity.canPortal) {
+      $entity.addClass('can_portal')
+    } else {
+      $entity.removeClass('can_portal')
+    }
   })
 }
 
