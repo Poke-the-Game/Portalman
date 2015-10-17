@@ -17,6 +17,7 @@ var inputs = [];
 
     inputs.push(new window.GamepadInput({
       buttons: {
+        9: 'enter',
         14: 'left',
         12: 'up',
         15: 'right',

@@ -29,42 +29,40 @@ KeyboardInput.prototype._key = function (state, event) {
 var GamepadInput = function (map) {
   this.map = map
   this._states = {}
-  window.addEventListener('gamepadconnected', function (e) {
-    console.log('Gamepad ' + e.gamepad.index + ' connected!')
-    this._checkState(e.gamepad.index)
-  }.bind(this))
+  window.setInterval(function () {
+    for (var i = 0; i < navigator.getGamepads().length; i++) {
+      if(navigator.getGamepads()[i] !== undefined) {
+        this._checkState(navigator.getGamepads()[i])
+      }
+    }
+  }.bind(this), 100)
 }
 GamepadInput.prototype = new Input()
 GamepadInput.prototype.constructor = KeyboardInput
 
-GamepadInput.prototype._checkState = function (index) {
-  var gp = navigator.getGamepads()[index]
-  if (gp === undefined) {
-    console.log('Gamepad ' + index + ' disconnected!')
-    return
-  }
-  //console.debug('checking', gp)
+GamepadInput.prototype._checkState = function (gp) {
+  // console.debug('checking', gp)
   if (this._states[gp.index] === undefined) { this._states[gp.index] = {buttons: [], axes: []} }
-  for(var i = 0; i < gp.axes.length; i++) {
-    if(this._states[gp.index].axes[i] !== undefined && this._states[gp.index].axes[i] !== gp.axes[i])
+  for (var i = 0; i < gp.axes.length; i++) {
+    if (this._states[gp.index].axes[i] !== undefined && this._states[gp.index].axes[i] !== gp.axes[i]) {
       this._axisChanged(gp, i, gp.axes[i])
+    }
     this._states[gp.index].axes[i] = gp.axes[i]
   }
-  for(i = 0; i < gp.buttons.length; i++) {
+  for (i = 0; i < gp.buttons.length; i++) {
     if (this._states[gp.index].buttons[i] !== undefined && this._states[gp.index].buttons[i] !== gp.buttons[i].pressed) {
       this._buttonChanged(gp, i, gp.buttons[i].pressed)
     }
     this._states[gp.index].buttons[i] = gp.buttons[i].pressed
   }
-  window.setTimeout(function () { this._checkState(index) }.bind(this), 100)
 }
 GamepadInput.prototype._buttonChanged = function (gamepad, button, state) {
-  //console.debug('gamepad button "' + button + '" was ' + (state ? 'pressed' : 'released'))
+  // console.debug('gamepad button "' + button + '" was ' + (state ? 'pressed' : 'released'))
   if (this.map.buttons[button] === undefined) { return }
   this.dispatchInputEvent('gamepad_' + gamepad.index, this.map.buttons[button], state)
 }
 GamepadInput.prototype._axisChanged = function (gamepad, axis, state) {
-  //console.debug('gamepad axis "' + axis + '" changed to ' + state)
+  // console.debug('gamepad axis "' + axis + '" changed to ' + state)
   if (this.map.axes[axis] === undefined) { return }
   this.dispatchInputEvent('gamepad_' + gamepad.index, this.map.axes[axis], state)
 }
