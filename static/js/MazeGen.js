@@ -22,6 +22,7 @@ var MazeGen = function MazeGen (sizeX, sizeY) {
     }
   }
 
+  //setup a grid
   this.visit(this.grid[0][0])
 }
 
