@@ -6,11 +6,11 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 
     <style type="text/css">
-  		body {
+  		body.menu {
   			background-color: black;
   			font-family: 'Roboto', sans-serif;
   			text-transform: uppercase;
-  			background: url("/static/img/menu_backdrop.jpg");
+  			background: url("/img/menu_backdrop.jpg");
   			background-size: 100%;
   		}
 
@@ -45,11 +45,17 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/jquery-2.1.4.min.js"></script>
   </head>
-  <body>
+  <body class='menu'>
 
+    <!-- input -->
+    <script src="/js/input.js"></script>
     <script src="/js/menu.js"></script>
+
+    <!-- game & sessions -->
     <script src="/js/game.js"></script>
     <script src="/js/sessionManager.js"></script>
+
+    <!-- main script -->
     <script src="/js/core.js"></script>
   </body>
 </html>
