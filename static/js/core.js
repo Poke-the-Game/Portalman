@@ -1,14 +1,20 @@
-var session = new window.SessionManager(window.io())
+var session = new window.SessionManager(window.io({reconnection: false}))
 
 var theMenu = window.buildMenu('Portalman', [{
   'text': 'Begin',
   'callback': function () {
     // clear the body
     theMenu.remove()
-    window.$('body').removeClass('menu')
+
+    // add a waiting message
+    theMenu = window.buildMenu('Waiting for a partner', [])
+    theMenu.appendTo('body')
 
     // start sessions and stuff
     session.start(function (socket) {
+      theMenu.remove()
+      window.$('body').removeClass('menu')
+
       window.client = new window.Game(socket)
     })
   }
@@ -20,9 +26,12 @@ var theMenu = window.buildMenu('Portalman', [{
 }, {
   'text': 'Quit',
   'callback': function () {
-    window.$('body')
-      .find('*').remove().end()
-    .append('<div class="menu"><h1>You quit. So no cake for you. </h1></div>')
+    // clear the menu
+    theMenu.remove()
+
+    // and add a message.
+    theMenu = window.buildMenu('You quit. So no cake for you. ', [])
+    theMenu.appendTo('body')
   }
 }])
 

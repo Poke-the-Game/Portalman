@@ -7,8 +7,6 @@ var Game = window.Game = function Game (socket) {
 }
 
 Game.prototype.initEventCallbacks = function () {
-  var self = this
-
   this.socket.on('disconnect', this.disconnect)
 
   this.socket.on('tick', function (data) {
@@ -17,5 +15,13 @@ Game.prototype.initEventCallbacks = function () {
 }
 
 Game.prototype.disconnect = function () {
-  console.log('disconnect')
+  // TODO: Clear game loop
+
+  // Clear the body
+  window.$('body')
+    .find('*').remove().end()
+  .addClass('menu')
+
+  // and add the menu again
+  window.buildMenu('Someone disconnected (or the server died), so the game has ended. ', []).appendTo('body')
 }
