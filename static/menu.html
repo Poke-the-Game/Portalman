@@ -47,13 +47,6 @@
 
 	<script type="text/javascript">
 		$(function() {
-			$('div.menu a').hover(
-				function(evt) {
-					$('div.menu a').removeClass('selected')
-					$(this).addClass('selected')
-				}
-			)
-
 			$(document).keydown(function(evt) {
 				switch(evt.which) {
 					case 87: // w
@@ -78,15 +71,38 @@
 				}
 			});
 		});
+
+		function buildMenu(title, items) {
+			var menu = $('<div class="menu">')
+
+			menu.append($('<h1>').text(title))
+
+			$.each(items, function(idx, e) {
+				menu.append($('<a>').text(e.text).click(e.callback));
+			})
+
+			$(menu).children('a').hover(
+				function(evt) {
+					$('div.menu a').removeClass('selected')
+					$(this).addClass('selected')
+				}
+			).eq(0).addClass('selected')
+
+
+
+			return menu
+		}
 	</script>
 
 	<body>
+		<!--
 		<div class="menu">
-			<h1> Portalman 3 </h1>
+			<h1>Portalman 3</h1>
 			<a href="#" class="selected"> Eins </a>
 			<a href="#"> Zwei </a>
 			<a href="#"> Drei </a>
 			<a href="#"> Impressum </a>
 		</div>
+		-->
 	</body>
 </html>
