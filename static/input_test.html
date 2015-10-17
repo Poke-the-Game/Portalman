@@ -3,7 +3,7 @@
   <script src="js/input.js"></script>
   <script type="text/javascript">
   "use strict";
-     var k, g
+     var k, g, m
      function test() {
       k = new KeyboardInput({
         13: 'enter',
@@ -27,6 +27,7 @@
           1: 'WHATEVER'
         }
       })
+      m = new MouseInput(document.getElementById('mouse_center'), {x: "A1", y: "A2"})
       window.addEventListener('userInput', doSomething);
       function doSomething(e) {
         console.log("Event is called: " + e.type + " (" + e.detail.input + ", " + e.detail.state + ")", e);
@@ -35,5 +36,7 @@
     }
   </script>
 </head>
-<body onload="test()"></body>
+<body onload="test()">
+  <div id="mouse_center" style="width:2px; height:2px; background:red;"></div>
+</body>
 </html>

@@ -66,3 +66,31 @@ GamepadInput.prototype._axisChanged = function (gamepad, axis, state) {
   if (this.map.axes[axis] === undefined) { return }
   this.dispatchInputEvent('gamepad_' + gamepad.index, this.map.axes[axis], state)
 }
+
+var MouseInput = function (element, map, radius) {
+  this.radius = radius === undefined ? 100 : radius
+  this.map = map
+  this._states = {x: 0, y: 0}
+  this.element = element
+  window.addEventListener('mousemove', function (e) {
+    var x = e.x - this.element.offsetTop
+    var y = e.y - this.element.offsetLeft
+    x /= this.radius
+    y /= this.radius
+    var l = Math.sqrt(x * x + y * y)
+    if(l>1) {
+      x /= l
+      y /= l
+    }
+    if (this._states.x !== x) {
+      this._states.x = x
+      this.dispatchInputEvent('mouse', this.map.x, x)
+    }
+    if (this._states.y !== y) {
+      this._states.y = y
+      this.dispatchInputEvent('mouse', this.map.y, y)
+    }
+  }.bind(this))
+}
+MouseInput.prototype = new Input()
+MouseInput.prototype.constructor = MouseInput
