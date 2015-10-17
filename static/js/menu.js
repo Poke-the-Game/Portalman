@@ -1,33 +1,6 @@
-var inputs = [];
 (function ($) {
 
   $(function () {
-    // TODO: Initialise all the inputs
-    inputs.push(new window.KeyboardInput({
-      13: 'enter',
-      37: 'left', // LEFT arrow
-      38: 'up', // UP arrow
-      39: 'right', // right arrow
-      40: 'down', // down arrow
-      87: 'up', // W
-      65: 'left', // A
-      83: 'down', // S
-      68: 'right' // D
-    }))
-
-    inputs.push(new window.GamepadInput({
-      buttons: {
-        9: 'enter',
-        14: 'left',
-        12: 'up',
-        15: 'right',
-        13: 'down'
-      },
-      axes: {
-        1: 'WHATEVER'
-      }
-    }))
-
     window.addEventListener('userInput', function (evt) {
       if (evt.detail.state) {
         var item = $('div.menu a.selected')
