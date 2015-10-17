@@ -16,7 +16,8 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('disconnect', this.disconnect)
 
   this.socket.on('gameStart', function (data) {
-    console.log('gameStart', data)
+    console.log('Client id', data.id)
+
     window.jQuery('<div id="field">').appendTo('body')
     this.ownPlayerId = data.id
     window.setInterval(function () {
