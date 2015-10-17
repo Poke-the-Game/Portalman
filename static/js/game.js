@@ -1,4 +1,4 @@
-var Game = window.Game = function Game (socket) {
+var Game = window.Game = function Game (socket, next) {
   this.ownPlayerId
 
   // Do stuff with the socket.
@@ -8,6 +8,7 @@ var Game = window.Game = function Game (socket) {
   this.initEventCallbacks()
 
   setTimeout(function () {
+    next()
     this.socket.emit('clientReady')
   }.bind(this), 1000)
 }
