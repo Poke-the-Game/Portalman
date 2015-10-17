@@ -6,6 +6,13 @@
     <link href="css/menu.css" rel='stylesheet' type='text/css'>
 
     <style type="text/css">
+      #field {
+        position: relative;
+        background-image: url('img/bg.svg');
+        width: 320px;
+        height: 320px;
+      }
+
   		.entity {
         width: 32px;
         height: 32px;
@@ -17,7 +24,7 @@
       .entity.wall {
         background-image: url('img/wall.svg');
       }
-      
+
       .entity.player {
         background-image: url('img/cube.svg');
       }
@@ -30,6 +37,31 @@
 
     <!-- input -->
     <script src="/js/input.js"></script>
+    <script type="text/javascript">
+      new window.KeyboardInput({
+        13: 'enter',
+        37: 'left', // LEFT arrow
+        38: 'up', // UP arrow
+        39: 'right', // right arrow
+        40: 'down', // down arrow
+        87: 'up', // W
+        65: 'left', // A
+        83: 'down', // S
+        68: 'right' // D
+      })
+      new window.GamepadInput({
+        buttons: {
+          9: 'enter',
+          14: 'left',
+          12: 'up',
+          15: 'right',
+          13: 'down'
+        },
+        axes: {
+          1: 'WHATEVER'
+        }
+      })
+    </script>
     <script src="/js/menu.js"></script>
 
     <!-- game & sessions -->
