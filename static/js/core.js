@@ -12,10 +12,10 @@ var theMenu = window.buildMenu('Portalman', [{
 
     // start sessions and stuff
     session.start(function (socket) {
-      theMenu.remove()
-      window.$('body').removeClass('menu')
-
-      window.client = new window.Game(socket)
+      window.client = new window.Game(socket, function () {
+        theMenu.remove()
+        window.$('body').removeClass('menu')
+      })
     })
   }
 }, {
