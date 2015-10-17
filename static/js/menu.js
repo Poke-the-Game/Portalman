@@ -15,6 +15,18 @@ var inputs = [];
       68: 'right' // D
     }))
 
+    inputs.push(new window.GamepadInput({
+      buttons: {
+        14: 'left',
+        12: 'up',
+        15: 'right',
+        13: 'down'
+      },
+      axes: {
+        1: 'WHATEVER'
+      }
+    }))
+
     window.addEventListener('userInput', function (evt) {
       if (evt.detail.state) {
         var item = $('div.menu a.selected')

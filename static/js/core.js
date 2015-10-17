@@ -20,7 +20,9 @@ var theMenu = window.buildMenu('Portalman', [{
 }, {
   'text': 'Quit',
   'callback': function () {
-    window.$('body').find('*').remove()
+    window.$('body')
+      .find('*').remove().end()
+    .append('<div class="menu"><h1>You quit. So no cake for you. </h1></div>')
   }
 }])
 
