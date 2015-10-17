@@ -44,9 +44,12 @@ Game.prototype.render = function (entities) {
       $entity = window.jQuery('<div id="' + entity.id + '" class="entity ' + entity.type + '">')
       window.jQuery('#field').append($entity)
     }
+
     $entity.css('top', entity.pos.y * 32)
     $entity.css('left', entity.pos.x * 32)
-    if(entity.canPortal) {
+    $entity.css('transform', 'rotate(' + entity.rotation + 'deg)')
+
+    if (entity.canPortal) {
       $entity.addClass('can_portal')
     } else {
       $entity.removeClass('can_portal')
