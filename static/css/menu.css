@@ -22,6 +22,8 @@ div.menu a {
   text-decoration: none;
   color: #474747;
   font-size: 18pt;
+  padding: 0.2em 0 0.2em 0.5em;
+  margin-bottom: 0.1em;
 }
 
 div.menu a.selected {
