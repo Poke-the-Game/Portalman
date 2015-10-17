@@ -26,20 +26,24 @@ Game.prototype.initEventCallbacks = function () {
 
   this.socket.on('tick', function (data) {
     console.log('tick', data)
-  })
+    this.render(data.entities)
+  }.bind(this))
 
   this.socket.on('worldUpdate', function (data) {
     console.log('worldUpdate', data)
-    data.entities.forEach(function (entity) {
-      console.log('draw', entity)
-      var $entity = window.jQuery('#' + entity.id)
-      if (!$entity.length) {
-        $entity = window.jQuery('<div id="' + entity.id + '" class="entity ' + entity.type + '">')
-        window.jQuery('#field').append($entity)
-      }
-      $entity.css('top', entity.pos.y * 32)
-      $entity.css('left', entity.pos.x * 32)
-    })
+    this.render(data.entities)
+  }.bind(this))
+}
+
+Game.prototype.render = function (entities) {
+  entities.forEach(function (entity) {
+    var $entity = window.jQuery('#' + entity.id)
+    if (!$entity.length) {
+      $entity = window.jQuery('<div id="' + entity.id + '" class="entity ' + entity.type + '">')
+      window.jQuery('#field').append($entity)
+    }
+    $entity.css('top', entity.pos.y * 32)
+    $entity.css('left', entity.pos.x * 32)
   })
 }
 

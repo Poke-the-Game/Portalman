@@ -7,6 +7,7 @@ var BaseEntity = function () {
   this.pos = {x: 0, y: 0}
   this.rotation = 0
   this.type = ''
+  this.changedSinceLastTick = false
 }
 
 var BasePlayer = function () {
