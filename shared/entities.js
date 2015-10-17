@@ -63,6 +63,7 @@ var BaseBomb = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'bomb'
   this.canPortal = false
+  this.diffusionTime = 4000
 }
 
 BaseBomb.prototype = new BaseEntity()

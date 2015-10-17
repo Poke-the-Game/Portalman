@@ -29,12 +29,19 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('tick', function (data) {
     console.log('tick', data)
     this.render(data.entities)
+    this.handleDeletedEntities(data.deletedEntities)
   }.bind(this))
 
   this.socket.on('worldUpdate', function (data) {
     console.log('worldUpdate', data)
     this.render(data.entities)
   }.bind(this))
+}
+
+Game.prototype.handleDeletedEntities = function (deletedEntities) {
+  deletedEntities.forEach(function (entity) {
+    window.jQuery('#' + entity.id).remove()
+  })
 }
 
 Game.prototype.render = function (entities) {
