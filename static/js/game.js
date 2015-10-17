@@ -3,7 +3,17 @@ var Game = window.Game = function Game (socket) {
   console.log('socket', socket)
   this.socket = socket
 
-  socket.on('disconnect', this.disconnect)
+  this.initEventCallbacks()
+}
+
+Game.prototype.initEventCallbacks = function () {
+  var self = this
+
+  this.socket.on('disconnect', this.disconnect)
+
+  this.socket.on('tick', function (data) {
+    console.log('tick', data)
+  })
 }
 
 Game.prototype.disconnect = function () {

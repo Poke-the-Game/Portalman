@@ -3,7 +3,7 @@
   <script src="js/input.js"></script>
   <script type="text/javascript">
   "use strict";
-     var k
+     var k, g
      function test() {
       k = new KeyboardInput({
         13: 'enter',
@@ -15,6 +15,17 @@
         87: 'up', // W
         68: 'right', // D
         83: 'down' // S
+      })
+      g = new GamepadInput({
+        buttons: {
+          14: 'left',
+          12: 'up',
+          15: 'right',
+          13: 'down'
+        },
+        axes: {
+          1: 'WHATEVER'
+        }
       })
       window.addEventListener('userInput', doSomething);
       function doSomething(e) {
