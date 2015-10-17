@@ -3,12 +3,28 @@
     src: url('/Roboto-Regular.ttf');
 }
 
+html, body {
+  height:100%;
+}
+
+#logo {
+  display: none;
+  position: absolute;
+  right:0px;
+  bottom:0px;
+  max-height: 75%;
+}
+
+body.menu #logo {
+  display: block;
+}
+
 div.info {
   display: none;
   position: fixed;
   top: 10%;
   left: 10%;
-  width: 40%;
+  max-width: 40%;
 
   -webkit-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
@@ -17,7 +33,7 @@ div.info {
   color: black;
   background-color: #FCEEFF;
   padding: 1em;
-  padding-bottom: 2em;
+  /* padding-bottom: 2em; */
 }
 
 div.info a {
@@ -27,8 +43,7 @@ div.info a {
 body.menu {
   background-color: black;
   font-family: 'Roboto', sans-serif;
-  background: url("/img/menu_backdrop.jpg");
-  background-size: 100%;
+  background: radial-gradient(circle at bottom right, #444 0%,#000 90%);
 }
 
 div.menu {
