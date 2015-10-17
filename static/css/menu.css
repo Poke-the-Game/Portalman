@@ -3,15 +3,36 @@
     src: url('/Roboto-Regular.ttf');
 }
 
+div.info {
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  width: 40%;
+
+  -webkit-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
+  box-shadow: inset 0px 0px 45px 0px rgba(0,0,0,0.75);
+
+  color: black;
+  background-color: #FCEEFF;
+  padding: 1em;
+  padding-bottom: 2em;
+}
+
+div.info a {
+  text-decoration: none;
+}
+
 body.menu {
   background-color: black;
   font-family: 'Roboto', sans-serif;
-  text-transform: uppercase;
   background: url("/img/menu_backdrop.jpg");
   background-size: 100%;
 }
 
 div.menu {
+  text-transform: uppercase;
   width: 20%;
   position: fixed;
   bottom: 20%;
