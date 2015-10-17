@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Poke-the-Game/Portalman#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "socket.io": "^1.3.7"
+    "socket.io": "^1.3.7",
+    "uuid": "^2.0.1"
   }
 }
