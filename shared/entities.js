@@ -27,6 +27,8 @@ var BasePlayer = function () {
   BaseEntity.apply(this, arguments)
   this.type = 'player'
   this.inputState = {}
+
+  this.maxBombNum = 1
 }
 BasePlayer.prototype = new BaseEntity()
 BasePlayer.prototype.constructor = BasePlayer
@@ -54,3 +56,14 @@ BaseCube.prototype = new BaseEntity()
 BaseCube.prototype.constructor = BaseCube
 
 exports.BaseCube = BaseCube
+
+var BaseBomb = function () {
+  BaseEntity.apply(this, arguments)
+  this.type = 'bomb'
+  this.canPortal = false
+}
+
+BaseBomb.prototype = new BaseEntity()
+BaseBomb.prototype.constructor = BaseBomb
+
+exports.BaseBomb = BaseBomb
