@@ -58,7 +58,7 @@ Game.prototype.initEventCallbacks = function () {
   })
 
   this.socket.on('death', function (data) {
-    alert('You are dead!')
+    window.alert('You are dead!')
   })
 }
 
@@ -85,11 +85,7 @@ Game.prototype.render = function (entities) {
 
     if (entity.canPortal) {
       $entity.addClass('can_portal')
-
-      if (entity.portal.right) {
-        console.log(entity.portal.right, $entity)
-      }
-
+      
       $entity.css({
         'border-left': entity.portal.left ? '2px solid blue' : undefined,
         'border-right': entity.portal.right ? '2px solid blue' : undefined,

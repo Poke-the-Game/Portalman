@@ -98,3 +98,13 @@ BasePortal.prototype = new BaseEntity()
 BasePortal.prototype.constructor = BasePortal
 
 exports.BasePortal = BasePortal
+
+var BasePowerup = function () {
+  BaseEntity.apply(this, arguments)
+  this.type = 'powerup'
+}
+
+BasePowerup.prototype = new BaseEntity()
+BasePowerup.prototype.constructor = BasePowerup
+
+exports.BasePowerup = BasePowerup
