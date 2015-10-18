@@ -103,7 +103,7 @@ Game.prototype.render = function (entities) {
 
     if (entity.targetBlock !== undefined) {
       var color = entity.targetBlock.canPortal ? 'green' : 'red'
-      var $targetBlock = window.jQuery("#"+entity.targetBlock.id)
+      var $targetBlock = window.jQuery('#' + entity.targetBlock.id)
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
         $targetRay = window.jQuery('<div class="target_ray">')
@@ -111,10 +111,10 @@ Game.prototype.render = function (entities) {
       }
       $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: color})
 
-      var $targetPlane = $('#' + entity.id + 'targetPlane')
+      var $targetPlane = window.$('#' + entity.id + 'targetPlane')
       if (!$targetPlane.length) {
         $targetPlane = window.jQuery('<div class="target_plane" id="' + entity.id + 'targetPlane">')
-        $('#field').append($targetPlane)
+        window.$('#field').append($targetPlane)
       }
       $targetPlane.css({
         top: $targetBlock.css('top'),
