@@ -57,12 +57,14 @@ Game.prototype.initEventCallbacks = function () {
     })
   })
 
+  var self = this
+
   this.socket.on('death', function (data) {
-    window.alert('You are dead!')
+    self.gameEnded(false)
   })
 
   this.socket.on('win', function (data) {
-    window.alert('You are win!')
+    self.gameEnded(true)
   })
 }
 
@@ -109,6 +111,17 @@ Game.prototype.render = function (entities) {
       //$targetRay.css({width:})
     }
   })
+}
+
+Game.prototype.gameEnded = function (win) {
+  this.socket.disconnect()
+
+  window.$('#field').remove()
+  window.$('body').addClass('menu')
+
+  window.showInfo(win ? 'You win! Get some cookies' : 'You loose. Too bad :(')
+
+  window.theMenu.appendTo(window.$('body'))
 }
 
 Game.prototype.disconnect = function () {
