@@ -101,7 +101,7 @@ Game.prototype.render = function (entities) {
 
     if (entity.targetBlock !== undefined) {
       var $targetBlock = window.jQuery("#"+entity.targetBlock.id)
-      $targetBlock.css("background", "green")
+      // $targetBlock.css("background", "green")
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
         $targetRay = window.jQuery('<div class="target_ray">')
