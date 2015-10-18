@@ -7,6 +7,9 @@ body {
   background-image: url('../img/bg.svg');
   width: 320px;
   height: 320px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .entity {
@@ -34,6 +37,17 @@ body {
   background-image: url('../img/player.svg');
 }
 
+.entity.player .target_ray {
+  position: absolute;
+  top: 2px;
+  left: 19px;
+  height:2px;
+  width:1000px;
+  background: red;
+  transform: rotate(-90deg);
+  transform-origin: 0px 0px;
+}
+
 .entity.cube {
   background-image: url('../img/cube.svg');
 }
@@ -47,6 +61,10 @@ body {
 
 .entity.portal {
   background-image: url('../img/portal.svg');
+}
+
+.entity.powerup {
+  background-image: url('../img/powerup.svg');
 }
 
 .explosion {
