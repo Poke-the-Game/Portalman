@@ -99,19 +99,16 @@ Game.prototype.render = function (entities) {
       $entity.css('border-top', '2px solid ' + entity.color)
     }
 
-    if (entity.type === 'player') {
-      console.log(entity.targetBlock)
-      if (!entity.targetBlock) {
-        return
-      }
-      var $targetBlock = window.jQuery(entity.targetBlock.id)
+    if (entity.targetBlock !== undefined) {
+      var $targetBlock = window.jQuery("#"+entity.targetBlock.id)
+      $targetBlock.css("background", "green")
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
         $targetRay = window.jQuery('<div class="target_ray">')
         $entity.append($targetRay)
       }
-      console.log($targetRay)
-      //$targetRay.css({width:})
+      console.log(entity.targetBlock.length)
+      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px'})
     }
   })
 }
