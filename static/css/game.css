@@ -44,3 +44,9 @@ body {
   background-size: 24px 24px;
   background-repeat: no-repeat;
 }
+
+.explosion {
+  position: absolute;
+  z-index: 100;
+  background-color:#f00;
+}
