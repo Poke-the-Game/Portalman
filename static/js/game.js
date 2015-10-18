@@ -21,7 +21,8 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('gameStart', function (data) {
     console.log('Client id', data.id)
 
-    window.jQuery('<div id="field">').appendTo('body').css({width: data.size.x * 32, height: data.size.y * 32})
+    var $field = window.jQuery('<div id="field">').appendTo('body').css({width: data.size.x * 32, height: data.size.y * 32})
+    window.jQuery('<div id="stats">').appendTo($field)
     this.ownPlayerId = data.id
 
     this.render(data.entities)
@@ -134,7 +135,11 @@ Game.prototype.render = function (entities) {
         'border-right': (entity.targetBlock.side === 'right') * 2 + 'px solid ' + color
       })
     }
-  })
+
+    if (entity.id == this.ownPlayerId) {
+      $("#stats").html('Bombs: ' + entity.stats.maxBombNum + '<br>' + 'Range: ' + entity.stats.explosionRange)
+    }
+  }.bind(this))
 }
 
 Game.prototype.gameEnded = function (win) {
@@ -142,6 +147,7 @@ Game.prototype.gameEnded = function (win) {
   this.socket.disconnect()
 
   window.$('#field').remove()
+
   window.$('body').addClass('menu')
 
   window.showInfo(win ? 'You win! Get yourself some cookies' : 'You loose. Try again another day. Too bad :(')
