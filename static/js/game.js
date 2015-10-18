@@ -37,6 +37,10 @@ Game.prototype.initEventCallbacks = function () {
     this.render(data.entities)
     // TODO: remove all entities which do not exist in new state
   }.bind(this))
+
+  this.socket.on('explosions', function (explosions) {
+    console.log(explosions)
+  })
 }
 
 Game.prototype.handleDeletedEntities = function (deletedEntities) {
