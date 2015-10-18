@@ -18,7 +18,6 @@ You can play the game at http://portalman.azurewebsites.net/. Enjoy :)
 * Move the mouse to aim your portal gun
 * Left and right click to shoot portals
 * `Space` to drop a bomb
-* `Ctrl` to trigger remote bombs
 
 
 ### Gamepads supported!
