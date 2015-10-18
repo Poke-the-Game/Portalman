@@ -43,8 +43,11 @@ var BasePlayer = function () {
     x: 0.8,
     y: 0.8
   }
-  this.maxBombNum = 1
   this.currentBombNum = 0
+
+  // modify by powerups
+  this.maxBombNum = 1
+  this.explosionRange = 2
 }
 BasePlayer.prototype = new BaseEntity()
 BasePlayer.prototype.constructor = BasePlayer
@@ -79,7 +82,6 @@ var BaseBomb = function () {
   this.type = 'bomb'
   this.canPortal = false
   this.diffusionTime = 4000
-  this.explosionRange = 3
 }
 
 BaseBomb.prototype = new BaseEntity()
