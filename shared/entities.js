@@ -10,6 +10,7 @@ var BaseEntity = function () {
   this.type = ''
   this.changedSinceLastTick = false
   this.velocity = 6
+  this.owner = false
   this.game = undefined
 }
 
@@ -68,7 +69,7 @@ var BaseBomb = function () {
   this.type = 'bomb'
   this.canPortal = false
   this.diffusionTime = 4000
-  this.explosionRange = 4
+  this.explosionRange = 3
 }
 
 BaseBomb.prototype = new BaseEntity()
