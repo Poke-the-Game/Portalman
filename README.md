@@ -3,6 +3,7 @@
 ### Play
 
 You can play the game at http://portalman.azurewebsites.net/. Enjoy :)
+Thanks to Dreamspark!
 
 
 ### Build
