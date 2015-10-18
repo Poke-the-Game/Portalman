@@ -10,6 +10,7 @@ var BaseEntity = function () {
   this.type = ''
   this.changedSinceLastTick = false
   this.velocity = 6
+  this.owner = false
   this.game = undefined
 }
 
