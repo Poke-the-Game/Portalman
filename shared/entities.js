@@ -30,7 +30,8 @@ BaseEntity.prototype.serialize = function () {
     'size': this.size,
     'rotation': this.rotation,
     'canPortal': this.canPortal,
-    'color': this.color
+    'color': this.color,
+    'targetBlock': this.targetBlock
   }
 }
 
