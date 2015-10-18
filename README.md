@@ -21,6 +21,10 @@ You can play the game at http://portalman.azurewebsites.net/. Enjoy :)
 * `Ctrl` to trigger remote bombs
 
 
+### Gamepads supported!
+
+Plug and play (as long as your browser has the API, of course.)
+
 ### License
 
 The MIT License (MIT)
