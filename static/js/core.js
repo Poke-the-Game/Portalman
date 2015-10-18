@@ -1,4 +1,4 @@
-var session = new window.SessionManager(window.io({reconnection: false}))
+window.session = new window.SessionManager(window.io({'reconnection': false}))
 
 var theMenu = window.buildMenu('Portalman', [{
   'text': 'Begin',
@@ -11,7 +11,7 @@ var theMenu = window.buildMenu('Portalman', [{
     window.showInfo('Waiting for opponent...')
 
     // start sessions and stuff
-    session.start(function (socket) {
+    window.session.start(function (socket) {
       window.client = new window.Game(socket, function () {
         theMenu.detach()
         window.hideInfo()

@@ -10,8 +10,8 @@ var Game = window.Game = function Game (socket, next) {
   this.initEventCallbacks()
 
   setTimeout(function () {
-    next()
     this.socket.emit('clientReady')
+    next()
   }.bind(this), 1000)
 }
 
@@ -27,7 +27,7 @@ Game.prototype.initEventCallbacks = function () {
     this.render(data.entities)
     this.mouseInput = new window.MouseInput(document.getElementById(data.id), {x: 'GUN_X', y: 'GUN_Y'})
 
-    window.setInterval(function () {
+    this.interval = window.setInterval(function () {
       this.socket.emit('tick', window.Input.prototype.states)
     }.bind(this), 50)
   }.bind(this))
@@ -151,14 +151,15 @@ Game.prototype.disconnect = function () {
 
   window.showInfo('Your opponent disconnected.')
 
+  window.clearInterval(this.interval)
+  self.socket = undefined
+  window.session = new window.SessionManager(window.io.connect({'reconnection': false, 'forceNew': true}))
+  window.hasGameEnded = false
+
   if (!this.hasGameEnded) {
     setTimeout(function () {
       window.hideInfo()
     }, 2000)
-
-    self.socket.connect()
-    self.socket = undefined
-    window.hasGameEnded = false
   }
 
   // and add the menu again
