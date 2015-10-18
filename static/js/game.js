@@ -19,7 +19,7 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('gameStart', function (data) {
     console.log('Client id', data.id)
 
-    window.jQuery('<div id="field">').appendTo('body')
+    window.jQuery('<div id="field">').appendTo('body').css({width: data.size.x * 32, height: data.size.y * 32})
     this.ownPlayerId = data.id
     window.setInterval(function () {
       this.socket.emit('tick', window.Input.prototype.states)
