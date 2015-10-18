@@ -52,5 +52,15 @@ body {
 .explosion {
   position: absolute;
   z-index: 100;
+}
+
+.explosion:after {
+  content: "";
   background-color:#f00;
+  border-radius: 10px;
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  right: 5px;
 }
