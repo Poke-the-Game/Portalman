@@ -43,7 +43,6 @@ Game.prototype.initEventCallbacks = function () {
   }.bind(this))
 
   this.socket.on('explosions', function (explosions) {
-    console.log(explosions)
     explosions.forEach(function (explosion) {
       var $explosion = window.jQuery('<div class="explosion">')
       var top = Math.min(explosion.start.y, explosion.end.y) * 32
@@ -51,7 +50,7 @@ Game.prototype.initEventCallbacks = function () {
       var height = Math.abs(explosion.start.y - explosion.end.y) * 32 + 32
       var width = Math.abs(explosion.start.x - explosion.end.x) * 32 + 32
       var css = {top: top, left: left, height: height, width: width}
-      console.log(explosion, css)
+
       $explosion.css(css)
       window.setTimeout(function () { this.remove() }.bind($explosion), 500)
       window.$('#field').append($explosion)
@@ -95,8 +94,6 @@ Game.prototype.disconnect = function () {
   window.$('body')
     .find('*').remove().end()
   .addClass('menu')
-
-  console.log(window.showInfo)
 
   window.showInfo('Your opponent disconnected')
 
