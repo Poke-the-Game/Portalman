@@ -37,6 +37,22 @@ Game.prototype.initEventCallbacks = function () {
     this.render(data.entities)
     // TODO: remove all entities which do not exist in new state
   }.bind(this))
+
+  this.socket.on('explosions', function (explosions) {
+    console.log(explosions)
+    explosions.forEach(function (explosion) {
+      var $explosion = window.jQuery('<div class="explosion">')
+      var top = Math.min(explosion.start.y, explosion.end.y) * 32
+      var left = Math.min(explosion.start.x, explosion.end.x) * 32
+      var height = Math.abs(explosion.start.y - explosion.end.y) * 32 + 32
+      var width = Math.abs(explosion.start.x - explosion.end.x) * 32 + 32
+      var css = {top: top, left: left, height: height, width: width}
+      console.log(explosion, css)
+      $explosion.css(css)
+      window.setTimeout(function () { this.remove() }.bind($explosion), 500)
+      $('#field').append($explosion)
+    })
+  })
 }
 
 Game.prototype.handleDeletedEntities = function (deletedEntities) {

@@ -75,3 +75,13 @@ BaseBomb.prototype = new BaseEntity()
 BaseBomb.prototype.constructor = BaseBomb
 
 exports.BaseBomb = BaseBomb
+
+var BasePortal = function () {
+  BaseEntity.apply(this, arguments)
+  this.type = 'portal'
+}
+
+BasePortal.prototype = new BaseEntity()
+BasePortal.prototype.constructor = BasePortal
+
+exports.BasePortal = BasePortal
