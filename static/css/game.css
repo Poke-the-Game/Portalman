@@ -49,6 +49,10 @@ body {
   background-image: url('../img/portal.svg');
 }
 
+.entity.powerup {
+  background-image: url('../img/powerup.svg');
+}
+
 .explosion {
   position: absolute;
   z-index: 100;
