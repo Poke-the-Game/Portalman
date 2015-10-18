@@ -1,5 +1,4 @@
 (function ($) {
-
   $(function () {
     window.addEventListener('userInput', function (evt) {
       if (evt.detail.state) {
