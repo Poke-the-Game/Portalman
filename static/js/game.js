@@ -109,7 +109,7 @@ Game.prototype.render = function (entities) {
         $targetRay = window.jQuery('<div class="target_ray">')
         $entity.append($targetRay)
       }
-      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: color})
+      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: 'url("img/sine_'+color+'.svg")'})
 
       var $targetPlane = window.$('#' + entity.id + 'targetPlane')
       if (!$targetPlane.length) {
