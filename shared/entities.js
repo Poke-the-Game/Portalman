@@ -44,6 +44,7 @@ var BasePlayer = function () {
     y: 0.8
   }
   this.maxBombNum = 1
+  this.currentBombNum = 0
 }
 BasePlayer.prototype = new BaseEntity()
 BasePlayer.prototype.constructor = BasePlayer
