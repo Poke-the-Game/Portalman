@@ -45,6 +45,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.entity.portal {
+  background-image: url('../img/portal.svg');
+}
+
 .explosion {
   position: absolute;
   z-index: 100;
