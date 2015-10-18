@@ -76,8 +76,8 @@ var MouseInput = function (element, map, radius) {
     var x = e.x - this.element.offsetLeft
     var y = e.y - this.element.offsetTop
 
-    x /= this.radius
-    y /= this.radius
+    // x /= this.radius
+    // y /= this.radius
     var l = Math.sqrt(x * x + y * y)
     if (l > 1) {
       x /= l

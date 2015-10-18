@@ -21,6 +21,10 @@ Game.prototype.initEventCallbacks = function () {
 
     window.jQuery('<div id="field">').appendTo('body').css({width: data.size.x * 32, height: data.size.y * 32})
     this.ownPlayerId = data.id
+
+    this.render(data.entities)
+    this.mouseInput = new window.MouseInput(document.getElementById(data.id), {x: 'GUN_X', y: 'GUN_Y'})
+
     window.setInterval(function () {
       this.socket.emit('tick', window.Input.prototype.states)
     }.bind(this), 50)
@@ -50,7 +54,7 @@ Game.prototype.initEventCallbacks = function () {
       console.log(explosion, css)
       $explosion.css(css)
       window.setTimeout(function () { this.remove() }.bind($explosion), 500)
-      $('#field').append($explosion)
+      window.$('#field').append($explosion)
     })
   })
 }
