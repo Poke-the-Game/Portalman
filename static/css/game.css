@@ -40,12 +40,18 @@ body {
 .entity.player .target_ray {
   position: absolute;
   top: 2px;
-  left: 16px;
-  height:2px;
+  left: 14px;
+  height: 10px;
   width:1000px;
-  background: red;
+  background: url("img/sine_red.svg");
   transform: rotate(-90deg);
   transform-origin: 0px 0px;
+  animation: animatedBackground 1s linear infinite;
+}
+
+@keyframes animatedBackground {
+    0% { background-position: 0 0; }
+    100% { background-position: -20px 0; }
 }
 
 .target_plane {
