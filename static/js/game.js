@@ -57,8 +57,8 @@ Game.prototype.initEventCallbacks = function () {
     })
   })
 
-  this.socket.on('death', function(data) {
-    alert('You are dead!')
+  this.socket.on('death', function (data) {
+    window.alert('You are dead!')
   })
 }
 
