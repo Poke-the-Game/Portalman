@@ -1,5 +1,10 @@
 # Portalman
 
+### Play
+
+You can play the game at http://portalman.azurewebsites.net/. Enjoy :)
+
+
 ### Build
 
 1. `git clone git@github.com:Poke-the-Game/Portalman.git`

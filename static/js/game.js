@@ -5,7 +5,7 @@ var Game = window.Game = function Game (socket, next) {
   console.log('socket', socket)
   this.socket = socket
 
-  this.gameEnded = false
+  this.hasGameEnded = false
 
   this.initEventCallbacks()
 
@@ -16,7 +16,7 @@ var Game = window.Game = function Game (socket, next) {
 }
 
 Game.prototype.initEventCallbacks = function () {
-  this.socket.on('disconnect', this.disconnect)
+  this.socket.on('disconnect', this.disconnect.bind(this))
 
   this.socket.on('gameStart', function (data) {
     console.log('Client id', data.id)
@@ -103,7 +103,7 @@ Game.prototype.render = function (entities) {
 
     if (entity.targetBlock !== undefined) {
       var color = entity.targetBlock.canPortal ? 'green' : 'red'
-      var $targetBlock = window.jQuery("#"+entity.targetBlock.id)
+      var $targetBlock = window.jQuery('#' + entity.targetBlock.id)
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
         $targetRay = window.jQuery('<div class="target_ray">')
@@ -111,10 +111,10 @@ Game.prototype.render = function (entities) {
       }
       $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: color})
 
-      var $targetPlane = $('#' + entity.id + 'targetPlane')
+      var $targetPlane = window.$('#' + entity.id + 'targetPlane')
       if (!$targetPlane.length) {
         $targetPlane = window.jQuery('<div class="target_plane" id="' + entity.id + 'targetPlane">')
-        $('#field').append($targetPlane)
+        window.$('#field').append($targetPlane)
       }
       $targetPlane.css({
         top: $targetBlock.css('top'),
@@ -129,7 +129,7 @@ Game.prototype.render = function (entities) {
 }
 
 Game.prototype.gameEnded = function (win) {
-  this.gameEnded = true
+  this.hasGameEnded = true
   this.socket.disconnect()
 
   window.$('#field').remove()
@@ -149,13 +149,12 @@ Game.prototype.disconnect = function () {
 
   window.showInfo('Your opponent disconnected.')
 
-  if (!this.gameEnded) {
+  if (!this.hasGameEnded) {
     setTimeout(function () {
       window.hideInfo()
-      window.reload()
     }, 2000)
 
-    window.gameEnded = false
+    window.hasGameEnded = false
   }
 
   // and add the menu again
