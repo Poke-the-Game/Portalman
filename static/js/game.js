@@ -96,7 +96,7 @@ Game.prototype.render = function (entities) {
     }
 
     if (entity.type === 'portal') {
-      $entity.css('border-top', '2px solid ' + entity.color)
+      $entity.css('border-top', '5px solid ' + entity.color)
     }
 
     if (entity.targetBlock !== undefined) {

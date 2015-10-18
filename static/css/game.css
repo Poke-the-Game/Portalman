@@ -67,7 +67,7 @@ body {
 }
 
 .entity.portal {
-  background-image: url('../img/portal.svg');
+  /*background-image: url('../img/portal.svg');*/
 }
 
 .entity.powerup {
