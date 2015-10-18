@@ -143,6 +143,8 @@ Game.prototype.gameEnded = function (win) {
 Game.prototype.disconnect = function () {
   // TODO: Clear game loop
 
+  var self = this
+
   // Clear the body
   window.$('#field').remove()
   window.$('body').addClass('menu')
@@ -154,6 +156,8 @@ Game.prototype.disconnect = function () {
       window.hideInfo()
     }, 2000)
 
+    self.socket.connect()
+    self.socket = undefined
     window.hasGameEnded = false
   }
 
