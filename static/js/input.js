@@ -73,12 +73,13 @@ var MouseInput = function (element, map, radius) {
   this._states = {x: 0, y: 0}
   this.element = element
   window.addEventListener('mousemove', function (e) {
-    var x = e.x - this.element.offsetTop
-    var y = e.y - this.element.offsetLeft
+    var x = e.x - this.element.offsetLeft
+    var y = e.y - this.element.offsetTop
+
     x /= this.radius
     y /= this.radius
     var l = Math.sqrt(x * x + y * y)
-    if(l>1) {
+    if (l > 1) {
       x /= l
       y /= l
     }
