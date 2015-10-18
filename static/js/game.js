@@ -98,19 +98,32 @@ Game.prototype.render = function (entities) {
     }
 
     if (entity.type === 'portal') {
-      $entity.css('border-top', '2px solid ' + entity.color)
+      $entity.css('border-top', '5px solid ' + entity.color)
     }
 
     if (entity.targetBlock !== undefined) {
+      var color = entity.targetBlock.canPortal ? 'green' : 'red'
       var $targetBlock = window.jQuery("#"+entity.targetBlock.id)
-      $targetBlock.css("background", "green")
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
         $targetRay = window.jQuery('<div class="target_ray">')
         $entity.append($targetRay)
       }
-      console.log(entity.targetBlock.length)
-      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px'})
+      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: color})
+
+      var $targetPlane = $('#' + entity.id + 'targetPlane')
+      if (!$targetPlane.length) {
+        $targetPlane = window.jQuery('<div class="target_plane" id="' + entity.id + 'targetPlane">')
+        $('#field').append($targetPlane)
+      }
+      $targetPlane.css({
+        top: $targetBlock.css('top'),
+        left: $targetBlock.css('left'),
+        'border-top': (entity.targetBlock.side === 'top') * 2 + 'px solid ' + color,
+        'border-bottom': (entity.targetBlock.side === 'bottom') * 2 + 'px solid ' + color,
+        'border-left': (entity.targetBlock.side === 'left') * 2 + 'px solid ' + color,
+        'border-right': (entity.targetBlock.side === 'right') * 2 + 'px solid ' + color
+      })
     }
   })
 }
