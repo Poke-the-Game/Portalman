@@ -31,7 +31,7 @@ Game.prototype.initEventCallbacks = function () {
   }.bind(this))
 
   this.socket.on('tick', function (data) {
-    console.log('tick', data)
+    // console.log('tick', data)
     this.render(data.entities)
     this.handleDeletedEntities(data.deletedEntities)
   }.bind(this))
@@ -57,7 +57,7 @@ Game.prototype.initEventCallbacks = function () {
     })
   })
 
-  this.socket.on('death', function(data) {
+  this.socket.on('death', function (data) {
     alert('You are dead!')
   })
 }
@@ -86,11 +86,15 @@ Game.prototype.render = function (entities) {
     if (entity.canPortal) {
       $entity.addClass('can_portal')
 
+      if (entity.portal.right) {
+        console.log(entity.portal.right, $entity)
+      }
+
       $entity.css({
-        'border-left': entity.portal.left ? '1 px solid blue' : 'none',
-        'border-right': entity.portal.right ? '1 px solid blue' : 'none',
-        'border-top': entity.portal.top ? '1 px solid blue' : 'none',
-        'border-bottom': entity.portal.bottom ? '1 px solid blue' : 'none'
+        'border-left': entity.portal.left ? '2px solid blue' : undefined,
+        'border-right': entity.portal.right ? '2px solid blue' : undefined,
+        'border-top': entity.portal.top ? '2px solid blue' : undefined,
+        'border-bottom': entity.portal.bottom ? '2px solid blue' : undefined
       })
     } else {
       $entity.removeClass('can_portal')

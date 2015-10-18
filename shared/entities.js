@@ -29,7 +29,12 @@ BaseEntity.prototype.serialize = function () {
     'size': this.size,
     'rotation': this.rotation,
     'canPortal': this.canPortal,
-    'portal': this.canPortal ? this.portal : undefined
+    'portal': this.canPortal ? {
+      'top': typeof this.portal.top !== 'boolean' ? this.portal.top[0].id : this.portal.top,
+      'right': typeof this.portal.right !== 'boolean' ? this.portal.right[0].id : this.portal.right,
+      'left': typeof this.portal.left !== 'boolean' ? this.portal.left[0].id : this.portal.left,
+      'bottom': typeof this.portal.bottom !== 'boolean' ? this.portal.bottom[0].id : this.portal.bottom
+    } : undefined
   }
 }
 
