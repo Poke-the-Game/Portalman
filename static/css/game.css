@@ -34,19 +34,25 @@ body {
 }
 
 .entity.player {
-  z-index: 10;
   background-image: url('../img/player.svg');
 }
 
 .entity.player .target_ray {
   position: absolute;
   top: 2px;
-  left: 19px;
+  left: 16px;
   height:2px;
   width:1000px;
   background: red;
   transform: rotate(-90deg);
   transform-origin: 0px 0px;
+}
+
+.target_plane {
+  position: absolute;
+  width:32px;
+  height:32px;
+  border-color: red;
 }
 
 .entity.cube {
