@@ -109,7 +109,16 @@ Game.prototype.render = function (entities) {
         $targetRay = window.jQuery('<div class="target_ray">')
         $entity.append($targetRay)
       }
-      $targetRay.css({width: (entity.targetBlock.length * 32) + 'px', background: 'url("img/sine_'+color+'.svg")'})
+
+      var deltaX = (entity.targetBlock.pos.x - entity.pos.x) * 32
+      var deltaY = (entity.targetBlock.pos.y - entity.pos.y) * 32
+      var length = Math.sqrt(deltaX * deltaX + deltaY * deltaY)
+      var frac = 0.7
+      if (frac * deltaX > deltaY || frac * deltaY > deltaX) {
+        length -= 16
+      }
+
+      $targetRay.css({width: length + 'px', background: 'url("img/sine_' + color + '.svg")'})
 
       var $targetPlane = window.$('#' + entity.id + 'targetPlane')
       if (!$targetPlane.length) {
