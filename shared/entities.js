@@ -12,6 +12,12 @@ var BaseEntity = function () {
   this.velocity = 6
   this.owner = false
   this.game = undefined
+  this.portal = {
+    'top': false,
+    'right': false,
+    'bottom': false,
+    'left': false
+  }
 }
 
 BaseEntity.prototype.update = function () {}
@@ -22,7 +28,8 @@ BaseEntity.prototype.serialize = function () {
     'pos': this.pos,
     'size': this.size,
     'rotation': this.rotation,
-    'canPortal': this.canPortal
+    'canPortal': this.canPortal,
+    'portal': this.canPortal ? this.portal : undefined
   }
 }
 
