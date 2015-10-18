@@ -44,3 +44,7 @@ body {
   background-size: 24px 24px;
   background-repeat: no-repeat;
 }
+
+.entity.portal {
+  background-image: url('../img/portal.svg');
+}
