@@ -59,6 +59,7 @@ body {
   width:32px;
   height:32px;
   border-color: red;
+  z-index: 10;
 }
 
 .entity.cube {
@@ -74,6 +75,7 @@ body {
 
 .entity.portal {
   /*background-image: url('../img/portal.svg');*/
+  transform-origin: 16px 16px;
 }
 
 .entity.powerup {
