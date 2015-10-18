@@ -56,6 +56,10 @@ Game.prototype.initEventCallbacks = function () {
       window.$('#field').append($explosion)
     })
   })
+
+  this.socket.on('death', function(data) {
+    alert('You are dead!')
+  })
 }
 
 Game.prototype.handleDeletedEntities = function (deletedEntities) {
