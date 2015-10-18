@@ -5,6 +5,8 @@ var Game = window.Game = function Game (socket, next) {
   console.log('socket', socket)
   this.socket = socket
 
+  this.gameEnded = false
+
   this.initEventCallbacks()
 
   setTimeout(function () {
@@ -114,6 +116,7 @@ Game.prototype.render = function (entities) {
 }
 
 Game.prototype.gameEnded = function (win) {
+  this.gameEnded = true
   this.socket.disconnect()
 
   window.$('#field').remove()
@@ -133,9 +136,14 @@ Game.prototype.disconnect = function () {
 
   window.showInfo('Your opponent disconnected.')
 
-  setTimeout(function () {
-    window.hideInfo()
-  }, 2000)
+  if (!this.gameEnded) {
+    setTimeout(function () {
+      window.hideInfo()
+      window.reload()
+    }, 2000)
+
+    window.gameEnded = false
+  }
 
   // and add the menu again
   window.theMenu.appendTo(window.$('body'))
