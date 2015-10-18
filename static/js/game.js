@@ -92,6 +92,18 @@ Game.prototype.render = function (entities) {
     if (entity.type === 'portal') {
       $entity.css('border-top', '2px solid ' + entity.color)
     }
+
+    if (entity.type === 'player') {
+      console.log(entity.targetBlock)
+      var $targetBlock = window.jQuery(entity.targetBlock.id)
+      var $targetRay = $entity.find('.target_ray')
+      if (!$targetRay.length) {
+        $targetRay = window.jQuery('<div class="target_ray">')
+        $entity.append($targetRay)
+      }
+      console.log($targetRay)
+      //$targetRay.css({width:})
+    }
   })
 }
 
@@ -99,9 +111,8 @@ Game.prototype.disconnect = function () {
   // TODO: Clear game loop
 
   // Clear the body
-  window.$('body')
-    .find('*').remove().end()
-  .addClass('menu')
+  window.$('#field').remove()
+  window.$('body').addClass('menu')
 
   window.showInfo('Your opponent disconnected')
 
