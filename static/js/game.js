@@ -85,15 +85,12 @@ Game.prototype.render = function (entities) {
 
     if (entity.canPortal) {
       $entity.addClass('can_portal')
-      
-      $entity.css({
-        'border-left': entity.portal.left ? '2px solid blue' : undefined,
-        'border-right': entity.portal.right ? '2px solid blue' : undefined,
-        'border-top': entity.portal.top ? '2px solid blue' : undefined,
-        'border-bottom': entity.portal.bottom ? '2px solid blue' : undefined
-      })
     } else {
       $entity.removeClass('can_portal')
+    }
+
+    if (entity.type === 'portal') {
+      $entity.css('border-top', '2px solid ' + entity.color)
     }
   })
 }
