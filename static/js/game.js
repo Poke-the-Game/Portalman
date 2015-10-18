@@ -99,6 +99,9 @@ Game.prototype.render = function (entities) {
 
     if (entity.type === 'player') {
       console.log(entity.targetBlock)
+      if (!entity.targetBlock) {
+        return
+      }
       var $targetBlock = window.jQuery(entity.targetBlock.id)
       var $targetRay = $entity.find('.target_ray')
       if (!$targetRay.length) {
