@@ -31,7 +31,7 @@ var GamepadInput = function (map) {
   this._states = {}
   window.setInterval(function () {
     for (var i = 0; i < navigator.getGamepads().length; i++) {
-      if(navigator.getGamepads()[i] !== undefined) {
+      if (navigator.getGamepads()[i] !== undefined) {
         this._checkState(navigator.getGamepads()[i])
       }
     }
@@ -73,8 +73,8 @@ var MouseInput = function (element, map, radius) {
   this._states = {x: 0, y: 0}
   this.element = element
   window.addEventListener('mousemove', function (e) {
-    var x = e.x - this.element.offsetLeft
-    var y = e.y - this.element.offsetTop
+    var x = e.x - (this.element.offsetLeft + this.element.offsetWidth / 2)
+    var y = e.y - (this.element.offsetTop + this.element.offsetHeight / 2)
 
     // x /= this.radius
     // y /= this.radius
