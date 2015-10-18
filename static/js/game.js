@@ -60,6 +60,10 @@ Game.prototype.initEventCallbacks = function () {
   this.socket.on('death', function (data) {
     window.alert('You are dead!')
   })
+
+  this.socket.on('win', function (data) {
+    window.alert('You are win!')
+  })
 }
 
 Game.prototype.handleDeletedEntities = function (deletedEntities) {
