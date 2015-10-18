@@ -122,7 +122,7 @@ Game.prototype.gameEnded = function (win) {
   window.$('#field').remove()
   window.$('body').addClass('menu')
 
-  window.showInfo(win ? 'You win! Get some cookies' : 'You loose. Too bad :(')
+  window.showInfo(win ? 'You win! Get yourself some cookies' : 'You loose. Try again another day. Too bad :(')
 
   window.theMenu.appendTo(window.$('body'))
 }
@@ -134,11 +134,11 @@ Game.prototype.disconnect = function () {
   window.$('#field').remove()
   window.$('body').addClass('menu')
 
-  window.showInfo('Your opponent disconnected')
+  window.showInfo('Your opponent disconnected.')
 
   setTimeout(function () {
     window.hideInfo()
-  }, 800)
+  }, 2000)
 
   // and add the menu again
   window.theMenu.appendTo(window.$('body'))
