@@ -72,6 +72,7 @@ var MouseInput = function (element, map, radius) {
   this.map = map
   this._states = {x: 0, y: 0}
   this.element = element
+
   window.addEventListener('mousemove', function (e) {
     var x = e.x - (this.element.getBoundingClientRect().left + this.element.offsetWidth / 2)
     var y = e.y - (this.element.getBoundingClientRect().top + this.element.offsetHeight / 2)
@@ -85,13 +86,25 @@ var MouseInput = function (element, map, radius) {
     }
     if (this._states.x !== x) {
       this._states.x = x
-      this.dispatchInputEvent('mouse', this.map.x, x)
+      this.dispatchInputEvent('mouse', this.map.axes.x, x)
     }
     if (this._states.y !== y) {
       this._states.y = y
-      this.dispatchInputEvent('mouse', this.map.y, y)
+      this.dispatchInputEvent('mouse', this.map.axes.y, y)
     }
   }.bind(this))
+
+  window.addEventListener('mousedown', function (e) {
+    if (this.map.buttons[e.button] === undefined) { return }
+    this.dispatchInputEvent('mouse', this.map.buttons[e.button], 1)
+  }.bind(this))
+
+  window.addEventListener('mouseup', function (e) {
+    if (this.map.buttons[e.button] === undefined) { return }
+    this.dispatchInputEvent('mouse', this.map.buttons[e.button], 0)
+  }.bind(this))
+
+  window.addEventListener('contextmenu', function (e) { e.preventDefault() })
 }
 MouseInput.prototype = new Input()
 MouseInput.prototype.constructor = MouseInput

@@ -26,7 +26,10 @@ Game.prototype.initEventCallbacks = function () {
     this.ownPlayerId = data.id
 
     this.render(data.entities)
-    this.mouseInput = new window.MouseInput(document.getElementById(data.id), {x: 'GUN_X', y: 'GUN_Y'})
+    this.mouseInput = new window.MouseInput(document.getElementById(data.id), {
+      axes: {x: 'GUN_X', y: 'GUN_Y'},
+      buttons: {0: 'fire1', 2: 'fire2'}
+    })
 
     this.interval = window.setInterval(function () {
       this.socket.emit('tick', window.Input.prototype.states)
